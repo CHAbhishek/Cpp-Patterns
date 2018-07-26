@@ -1,0 +1,53 @@
+#include <iostream>
+
+#include<stdlib.h>
+
+using namespace std;
+
+int n,c=1,j=0;
+
+void getpattern(int s,int e,int count,int itr)
+
+{
+    
+for(int i=0;i<n*2-1;i++)
+    
+if(s==i) 
+cout<<count;
+        
+else if (e==i) 
+cout<<count;
+        
+else  
+cout<<"*";
+        
+cout<<"\n";
+        
+if(itr<(n*2-1)/2) 
+count++;
+        
+else 
+count--;
+        
+itr++;
+        
+if(itr>=(n*2-1)) 
+exit(0);
+        
+else getpattern(s+1,e-1,count,itr);
+    
+}
+
+
+int main(int argc, char** argv)
+
+{
+
+int n,i;
+
+cin>>n;
+
+getpattern(0,n*2-2,c,j);
+
+
+}
