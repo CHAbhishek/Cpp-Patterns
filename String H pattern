@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+void getPattern(string k,string l,string m,int pos);
+int findPosition(string a,string b,string c);
+int i,j,m,n;
+int findPosition(string a,string b,string c)
+{
+    char c1,c2;
+    c1=a[0],c2=a[a.size()-1];
+    for(i=0;i<a.size()-1;i++)
+    {
+        if(c1==b[i] && c2==c[i])
+        {
+            getPattern(a,b,c,i);
+        }
+    }
+    return 0;
+}
+void getPattern(string k,string l,string m,int pos)
+{
+    string t;
+    t=k.substr(1,k.size()-2);
+    for(i=0;i<k.size();i++){
+        cout<<l[i];
+        for(j=0;j<k.size()-2;j++)
+        {
+            if(i==pos) {cout<<t;break;}
+            else cout<<"+";
+        }
+            cout<<m[i]<<"\n";
+    }
+}
+int main(int argc, char** argv)
+{
+int p=0,flag=0;
+string s1,s2,s3;
+cin>>s1>>s2>>s3;
+findPosition(s1,s2,s3);
+findPosition(s1,s3,s2);
+findPosition(s2,s3,s1);
+findPosition(s2,s1,s3);
+findPosition(s3,s1,s2);
+findPosition(s3,s2,s1);
+}
