@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+string s1,s2,s;
+int i,t,j;
+void printpattern(string str1,string str2);
+void loop(int ii);
+void loop(int ii)
+{
+    int k;
+    for(k=0;k<ii;k++) cout<<"-";
+}
+void printpattern(string str1 ,string str2)
+{
+    int count=1;
+    loop(t-1);
+    cout<<str2[0]<<"\n";
+    for(i=1;i<t;i++)
+    {
+        loop(t-1-i);
+        cout<<str1[t-i-1];
+        loop(count);
+        cout<<str2[i]<<"\n";
+        count+=2;
+    }
+}
+
+int main(int argc, char** argv)
+{
+cin>>s1>>s2;
+t=s1.size();
+if(s1[t-1]==s2[0]) s=s1,printpattern(s,s2);
+else if(s2[t-1]==s1[0]) s=s2,printpattern(s,s1);
+else cout<<"-1";
+
+}
